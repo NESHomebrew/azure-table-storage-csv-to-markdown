@@ -76,7 +76,11 @@ function createMD {
                 $content = "|" + $properties[$i] + "|" + $objTypes.($properties[$i + 1]) + "|"
             }
             else {
-                $content = "|" + $properties[$i] + "||"
+                $content = "|" + $properties[$i] + "|"
+                if ($i -eq 0) { $content += "**String**" }
+                if ($i -eq 1) { $content += "**String**" }
+                if ($i -eq 2) { $content += "**DateTime**" }
+                $content += "|"
                 if ($i -eq 0) { $content += $pkDescription }
                 if ($i -eq 1) { $content += $rkDescription }
                 if ($i -eq 2) { $content += "Automatically generated" }
