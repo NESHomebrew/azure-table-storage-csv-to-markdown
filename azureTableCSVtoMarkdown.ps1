@@ -57,6 +57,7 @@ function createMD {
     Foreach ($type in $types) { 
         $val = "" 
         $csv |  Select-Object $type -Unique | ForEach-Object { if ($_.$type -eq "") { $val += "***null*** " } else { $val += "**" + $_.$type + "** " } }
+        $val = $val.Replace(" *", " \| *")
         $objTypes += @{$type = $val }
     }
 
