@@ -37,8 +37,8 @@ function createMD {
     $csv = Import-CSV $path
 
 
-    $pk = $csv[1] | Select-Object -property "PartitionKey"
-    $rk = $csv[1] | Select-Object -property "RowKey"
+    $pk = $csv[0] | Select-Object -property "PartitionKey"
+    $rk = $csv[0] | Select-Object -property "RowKey"
     $pkDescription = ""
     $rkDescription = ""
 
