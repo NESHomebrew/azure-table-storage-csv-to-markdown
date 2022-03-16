@@ -74,7 +74,7 @@ function createMD {
         $obj = $properties[$i] 
         if ( ($i -lt $length - 1) -and !($obj -match "@type")) {
             if ($properties[$i + 1] -match "@type") {
-                $content = "|" + $properties[$i] + "|" + $objTypes.($properties[$i + 1]) + "|"
+                $content = "|" + $properties[$i] + "|" + $objTypes.($properties[$i + 1]) + "||"
             }
             else {
                 $content = "|" + $properties[$i] + "|"
@@ -85,6 +85,7 @@ function createMD {
                 if ($i -eq 0) { $content += $pkDescription }
                 if ($i -eq 1) { $content += $rkDescription }
                 if ($i -eq 2) { $content += "Automatically generated" }
+                $content += "|"
             }
             Out-File -FilePath $outputlocation -Append -NoClobber -InputObject $content
         }
